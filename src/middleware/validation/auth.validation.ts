@@ -27,7 +27,7 @@ export const loginValidationRules = [
   body('password')
     .isString()
     .isLength({ min: 4, max:4 })
-    .withMessage('La contraseña debe tener entre 4 y 20 caracteres'),
+    .withMessage('La contraseña debe tener 4 caracteres'),
 
   // Siempre al final: ejecuta las validaciones y corta si hay errores
   handleValidationErrors,

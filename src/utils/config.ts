@@ -1,11 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-function requireEnv(key: string, fallback?: string): string {
-  const value = process.env[key] ?? fallback;
-  if (!value) throw new Error(`No esta definida la variable de entorno: ${key}`);
-  return value;
-}
 
 export const config = {
   port: parseInt(process.env.PORT ?? '3000', 10),
