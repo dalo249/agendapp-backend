@@ -1,8 +1,8 @@
 import type { Page } from '@playwright/test';
 import { loginSelectors } from './selectors.js';
-import { config } from '../utils/config.js';
-import { logger } from '../utils/logger.js';
-import type { LoginCredentials } from "../types/index.types";
+import { config } from '../../utils/config.js';
+import { logger } from '../../utils/logger.js';
+import type { LoginCredentials } from "../../types/index.types.js";
  
  
 async function openLoginPage(page: Page): Promise<void> {
@@ -90,16 +90,6 @@ async function submitAndWaitHome(page: Page): Promise<void> {
   logger.debug('[Login] Portal cargado — usuario autenticado');
 }
 
-//Validar se autentico tiene cookie, hace peticion API interna de sura
-export async function validatePortalSession(page: Page): Promise<boolean> {
-  try {
-    const response = await page.request.post(config.portal.consultarAfiliadoUrl,);
-    return response.status() === 200;
-
-  } catch {
-    return false;
-  }
-}
 
 //flujo login completo
 export async function performLogin(page: Page, credentials: LoginCredentials, ): Promise<void> {

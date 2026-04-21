@@ -1,4 +1,5 @@
-export type DocumentType = 'C' | 'T' | 'P' | 'E' | 'R';
+export const DOCUMENT_TYPES = ['C', 'T', 'P', 'E', 'R'] as const;
+export type DocumentType = typeof DOCUMENT_TYPES[number];
 
 export interface LoginCredentials {
   epsId: string;
@@ -7,8 +8,8 @@ export interface LoginCredentials {
   password: string;
 }
 
-//Resultado de la autenticacion : repsuesta
-export interface LoginResponse {
+//Resultado de la autenticacion : respuesta
+export interface LoginResult {
   success: boolean;
   sessionId?: string;
   message: string;

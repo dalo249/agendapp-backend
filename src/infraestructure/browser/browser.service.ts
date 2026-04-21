@@ -1,6 +1,6 @@
 import { chromium, Browser } from '@playwright/test';
-import { config } from '../utils/config.js';
-import { logger } from '../utils/logger.js';
+import { config } from '../../utils/config.js';
+import { logger } from '../../utils/logger.js';
 
 //unica instancia de browser para toda la app, se reutiliza 
 class BrowserService {

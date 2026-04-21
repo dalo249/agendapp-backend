@@ -1,11 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
-import { config } from '../utils/config.js';
-import { logger } from '../utils/logger.js';
-import type { ActiveSession, SessionInfo } from "../types/index.types";
+import type { ActiveSession, SessionInfo } from "../../types/index.types";
 import type { BrowserContext, Page } from '@playwright/test';
+import { config } from '../../utils/config.js';
+import { logger } from '../../utils/logger';
 
-//almacenamiento en memoria desesiones: guardar, mantener, eliminar sesiones activas
-
+//almacenamiento en memoria desesiones: guardar, eliminar, get, controlar expiracion
 
 //Session: {string: session ID (codigo UUID), ActiveSession: contexto y page}
 class SessionStore {
@@ -85,7 +84,7 @@ class SessionStore {
     logger.info(`[SessionStore] Sesión destruida: ${sessionId}`);
   }
 
-  
+
   //info de sesion sin contexto, ni pagina
   getInfo(sessionId: string): SessionInfo | null {
     const session = this.sessions.get(sessionId);

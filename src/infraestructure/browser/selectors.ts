@@ -1,4 +1,4 @@
-import { LoginSelectors, HomeSelectors } from "../types/index.types";
+import { LoginSelectors, HomeSelectors } from "../../types/index.types";
 
 
 //Selectores identifcar etiquetas html en web sura
