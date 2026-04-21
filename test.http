@@ -1,0 +1,32 @@
+### Iniciar el servidor antes de ejecutar la petición ###
+# En la terminal ejecuta: npm run dev
+
+### Petición de Login ###
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "epsId": "sura",
+  "documentType": "C",
+  "documentNumber": "TU_DOCUMENTO",
+  "password": "TU_CONTRASEÑA"
+}
+
+### Petición para Agendar Cita (Requiere Login Previo) ###
+# Pone tu ID, y al ejecutarse verás que el Chromium se mueve a citas de médico general
+POST http://localhost:3000/api/citas/agendar
+Content-Type: application/json
+x-session-id: TU_SESSION_ID
+
+{
+  "especialidadUrl": "medicina-general",
+  "fechaDeseada": "2026-05-10",
+  "horaDeseada": "14:00"
+}
+
+### Petición de Logout ###
+# Sustituye "TU_SESSION_ID" con el valor (sessionId) que devolvió el login (por ej. "ec6d6279-...")
+POST http://localhost:3000/api/auth/logout
+Content-Type: application/json
+x-session-id: TU_SESSION_ID
+
